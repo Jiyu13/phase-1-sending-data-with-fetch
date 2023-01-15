@@ -6,6 +6,7 @@ function submitData (userName, userEmail) {
     }
     const destinationURL = " http://localhost:3000/users"
     const configurationObject = {
+        method: "POST",
         header: {
             "Content-Type": "application/json",
             "Accept": "application/json",
