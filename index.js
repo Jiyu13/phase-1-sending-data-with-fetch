@@ -1,23 +1,28 @@
 // Add your code here
-function submitData (userName, userEmail) {
+function submitData( name, email ) {
     const formData = {
-        name: userName,
-        email: userEmail,
+        name: name,
+        email: email,
     }
-    const destinationURL = " http://localhost:3000/users"
-    const configurationObject = {
+    return fetch('http://localhost:3000/users', {
         method: "POST",
-        header: {
-            "Content-Type": "application/json",
-            "Accept": "application/json",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
         },
         body: JSON.stringify(formData)
-    }
-    fetch(destinationURL, configurationObject)
-    .then(response => response.json())
-    .then(object => console.log(object))
-    .catch(function(error) {
-        alert("Bad things!");
-        console.log(error.message);
+      })
+      .then(response => response.json())
+      .then(object => {
+        const newTag = document.createElement("p");
+        const text = document.createTextNode(object.id);
+        newTag.appendChild(text);
+        document.body.appendChild(tag);
+      })
+      .catch(function(error) {
+        const newTag = document.createElement("p");
+        const text = document.createTextNode(error.message);
+        newTag.appendChild(text);
+        document.body.appendChild(newTag);
     })
 }
