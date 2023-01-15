@@ -16,4 +16,8 @@ function submitData (userName, userEmail) {
     fetch(destinationURL, configurationObject)
     .then(response => response.json())
     .then(object => console.log(object))
+    .catch(function(error) {
+        alert("Bad things!");
+        console.log(error.message);
+    })
 }
