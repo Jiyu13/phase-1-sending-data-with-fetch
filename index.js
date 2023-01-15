@@ -14,4 +14,6 @@ function submitData (userName, userEmail) {
         body: JSON.stringify(formData)
     }
     fetch(destinationURL, configurationObject)
+    .then(response => response.json())
+    .then(object => console.log(object))
 }
