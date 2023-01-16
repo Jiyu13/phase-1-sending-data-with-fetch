@@ -13,10 +13,7 @@ function submitData(name, email) {
       })
       .then(response => response.json())
       .then(object => {
-        const newTag = document.createElement("p");
-        const text = document.createTextNode(object.id);
-        newTag.appendChild(text);
-        document.body.appendChild(tag);
+        document.body.innerHTML = object["id"];
       })
       .catch(function(error) {
         const newTag = document.createElement("p");
